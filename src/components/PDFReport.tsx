@@ -238,7 +238,7 @@ export function DownloadPDFButton({ inspection }: { inspection: Inspection }) {
   const filename = `navigator-inspection-${inspection.address.replace(/\s+/g, '-').toLowerCase()}-${inspection.inspection_date || 'report'}.pdf`
   return (
     <PDFDownloadLink document={<InspectionPDF inspection={inspection} />} fileName={filename}>
-      {({ loading }) => (
+      {(({ loading }: { loading: boolean }) => (
         <button className="bg-green-700 hover:bg-green-800 text-white font-semibold px-5 py-2.5 rounded-lg flex items-center gap-2 transition-colors">
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -246,7 +246,8 @@ export function DownloadPDFButton({ inspection }: { inspection: Inspection }) {
           </svg>
           {loading ? 'Generating PDF…' : 'Download PDF Report'}
         </button>
-      )}
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      )) as any}
     </PDFDownloadLink>
   )
 }
