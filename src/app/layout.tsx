@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           })();
         `}} />
       </head>
-      <body className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors duration-200">
+      <body className="min-h-screen bg-slate-100 dark:bg-[#0a0f1e]">
         <AppProvider>
           <Header />
           <main className="max-w-7xl mx-auto px-4 py-6">
