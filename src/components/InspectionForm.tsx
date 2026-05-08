@@ -95,7 +95,7 @@ export default function InspectionForm({ inspection }: Props) {
   const progressPct = Math.round((assessedSections / SECTIONS.length) * 100)
 
   const allItems = SECTIONS.flatMap(s => s.items.map(item => sections[s.key]?.[item.id]))
-  const assessedItems = allItems.filter(i => i?.status && i.status !== '').length
+  const assessedItems = allItems.filter(i => i?.status).length
   const totalItems = allItems.length
 
   return (
