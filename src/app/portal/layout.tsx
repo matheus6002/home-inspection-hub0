@@ -14,38 +14,43 @@ function PortalHeader() {
   }
 
   return (
-    <div className="-mx-4 -mt-6 mb-8 bg-green-800 dark:bg-green-900 text-white shadow-md">
+    <div className="-mx-4 -mt-6 mb-8 bg-gradient-to-r from-green-900 to-green-800 dark:from-green-950 dark:to-green-900 text-white shadow-lg border-b border-green-700/30">
       <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center flex-shrink-0 shadow">
+          <div className="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center flex-shrink-0 shadow-inner">
             <svg viewBox="0 0 40 40" className="w-7 h-7" fill="none">
-              <circle cx="20" cy="20" r="19" stroke="#166534" strokeWidth="2" fill="white"/>
-              <circle cx="20" cy="20" r="5" fill="#166534"/>
-              <circle cx="20" cy="20" r="8" stroke="#166534" strokeWidth="1.5" fill="none"/>
-              <line x1="20" y1="5"  x2="20" y2="12" stroke="#166534" strokeWidth="2" strokeLinecap="round"/>
-              <line x1="20" y1="28" x2="20" y2="35" stroke="#166534" strokeWidth="2" strokeLinecap="round"/>
-              <line x1="5"  y1="20" x2="12" y2="20" stroke="#166534" strokeWidth="2" strokeLinecap="round"/>
-              <line x1="28" y1="20" x2="35" y2="20" stroke="#166534" strokeWidth="2" strokeLinecap="round"/>
-              <line x1="9"  y1="9"  x2="14.2" y2="14.2" stroke="#166534" strokeWidth="2" strokeLinecap="round"/>
-              <line x1="25.8" y1="25.8" x2="31" y2="31" stroke="#166534" strokeWidth="2" strokeLinecap="round"/>
-              <line x1="31" y1="9"  x2="25.8" y2="14.2" stroke="#166534" strokeWidth="2" strokeLinecap="round"/>
-              <line x1="14.2" y1="25.8" x2="9" y2="31" stroke="#166534" strokeWidth="2" strokeLinecap="round"/>
-              <path d="M20 13 L24 17 L24 23 L16 23 L16 17 Z" fill="#166534"/>
-              <path d="M18.5 23 L18.5 20 L21.5 20 L21.5 23" fill="white"/>
+              <circle cx="20" cy="20" r="5" fill="white"/>
+              <circle cx="20" cy="20" r="8" stroke="white" strokeWidth="1.5" fill="none" opacity="0.7"/>
+              <line x1="20" y1="4"  x2="20" y2="12" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+              <line x1="20" y1="28" x2="20" y2="36" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+              <line x1="4"  y1="20" x2="12" y2="20" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+              <line x1="28" y1="20" x2="36" y2="20" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+              <line x1="8"  y1="8"  x2="14" y2="14" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.7"/>
+              <line x1="26" y1="26" x2="32" y2="32" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.7"/>
+              <line x1="32" y1="8"  x2="26" y2="14" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.7"/>
+              <line x1="14" y1="26" x2="8"  y2="32" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.7"/>
             </svg>
           </div>
           <div>
-            <p className="font-bold text-sm leading-tight text-white">NAVIGATOR HOME INSPECTIONS LLC</p>
-            <p className="text-green-200 text-xs leading-tight">Client Portal</p>
+            <p className="font-bold text-sm leading-tight text-white tracking-wide">Navigator Home Inspections LLC</p>
+            <p className="text-green-300 text-xs leading-tight opacity-80">Client Portal</p>
           </div>
         </div>
         {client && (
           <div className="flex items-center gap-3">
-            <span className="text-sm text-green-100 hidden sm:block">Hello, {client.name.split(' ')[0]}</span>
+            <div className="hidden sm:flex items-center gap-2 bg-white/10 border border-white/10 rounded-lg px-3 py-1.5">
+              <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center text-white text-xs font-bold">
+                {client.name.charAt(0).toUpperCase()}
+              </div>
+              <span className="text-sm text-green-100 font-medium">{client.name.split(' ')[0]}</span>
+            </div>
             <button
               onClick={handleLogout}
-              className="text-sm bg-green-700 hover:bg-green-600 text-white px-3 py-1.5 rounded-lg transition-colors"
+              className="text-sm font-medium flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/10 text-green-100 px-3 py-1.5 rounded-lg transition-colors"
             >
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
               Sign Out
             </button>
           </div>
